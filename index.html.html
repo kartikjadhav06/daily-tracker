@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Day Personal Tracker</title>
+<style>
+  :root {
+    --navy:#173651; --teal:#1E8E8E; --teal-soft:#E8F4F3;
+    --ink:#263746; --muted:#66788A; --line:#D6DFE7;
+    --paper:rgba(255,255,255,.93); --paper2:rgba(247,249,251,.93);
+    --shadow:0 16px 40px rgba(14,36,56,.15);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:"CMU Serif", Georgia, "Times New Roman", serif;color:var(--ink);background:#dbe6ef}
+  body{min-height:100vh;background:
+      linear-gradient(rgba(235,242,248,.77),rgba(235,242,248,.77)),
+      url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAQABgADASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIBAwn/xAAjEAEBAAIBBQEBAQEBAQAAAAAAAQIREhMxQVFhIQMycSKB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAHREBAQEBAQACAwAAAAAAAAAAAAEREiECMVFhcf/aAAwDAQACEQMRAD8A9+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMgAJyAByAByAByAByAC4ACdAAdAA1KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFumZZ6RbtBfOHOIDB0llHNWOfsFAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz8qAm5jOKEc6c6LzViZm2ZyhljQBqUAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE55abllxiO6fYAKAAAALwu41GN1VoACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAy3UbbqOdu6MybW27YA0AAAA2ZaVLtBLoTHQTjn7UKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFuoMy1r9Sibd1gKAAAAAADpLuOc7ukmkABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEqM7u/8AGNykjAgAKAAAAAANxy0wB0l2Jw1/9UIACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACMst1ueXhKfsAFAAAAAABeN3ENxuqlFhLsUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3UE5390Cb+0AAAAAAAAAAABeN3ENxushKsAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZnlptuo527qAAoAAAAAAAAAA3HLS3NWGWkFAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZzv7V5f5qAAAAAAAAAAAAAG494xuM3kCwAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZuFEZXdY2zVYQAAAAAAAAAAAAAAXhluaanCbqkgAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMz7IdL+xOWGoCQAAAAAAAAAAJNgLwmoTCNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZldRqMruoMAUAAAAAAAAAAAAAAJdV07uasL4QUAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjKarF5TcQAAAAAAAAArDHU2zGbqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOwMzuogt3RIACgAAAAAAAAAAAAAAS6oA6S7gjHLjVy7QAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGU1Vp/p4BIAAAAAAAKwn4pOF7qAAAAAAAAAAAAAAAAAAAAAAAATYABoAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMpuNZldRKIAUAAAAAAAAAAAAAAAAAAFYz1Ukuko6BLuCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzKb89mpzy8AkAAAAAAAGy6q+7m3HLQLCXYAAAAAAAAAAAAAAAAAAAADmABu+28r7YArnTqJEwXzhziAwXzjOp8SGCpnbYpzDPwOg5703lZ5PRYmZt5w0aEsoaAG57hsABQAAAAAAAAAAAAAAAARld1Wd1P+oQAFAAAAAAAAAAAAAAAAAAAAG43VX3c14/5iDQFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALdJyz2BlnrskAAAAAAAAAAAJdLme0ALxy21zVjn7BQAAAAAAAAAAAAAAAAAOYAAAAAAAAAAAAAAAAAAAL5xnOJEwV1PhziQyC+UvlrmS6TB0EzOtme72PRoDQAy5SJo0T1PhM02ig7iwACiLd1jonOfqiQAAAAAAAAAAAAAAAAAAAAAF4/wCYYzUagAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADLdRpbqAi3dYW7oAAAAAAAAAAAAAAAACscvCnNeGWwaAAAAAAAAAAAAAAADmAAAAAAAAAAAAAAAAAAAABrYA3jb4bME0SLmEbJo0RMbTGayiw9ABQTljd7UM5gjV9U4VYvoSaAIACgzKbjQHOzQu47TcbAYAAAAAAAAAAAAAAAAAA3GbpMdqk0DQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE/08KZlNwEBZoAAAAAAAAAAAAAAAAAJdUAdO4Y9oCQAFAAAAAAAAAAAAcxvCnCgwbwpwoMG8KavqgwAAAAJ3jpqeoDmOmtAOY6Fmwcx0Acx0AAAAAAAAAAAAAAAAAAAAAAAZcZWdNQCemcL8UAnhTp/VAJ6f06f1QCen9On9UAnhfjOFWAjhThVgI4VvC/FAJ6bZhI0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATnj6igEavqmr6qwEavqmr6qwEavqmr6qwHMXcJacJ9BArp/Tp/QSK6f06f0Eiun9On9BIa22Y2gxuM3Wz+ftUmgAAAAAAAAAAAAAAAAAAAAAAGcZ6aAzjDjJ4aAanoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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") center/cover fixed;
+  }
+  .app{max-width:1500px;margin:0 auto;padding:20px}
+  .hero{position:relative;overflow:hidden;border-radius:24px;padding:28px 30px;margin-bottom:18px;
+         background:linear-gradient(135deg,rgba(23,54,81,.97),rgba(32,140,140,.93));color:white;box-shadow:var(--shadow)}
+  .hero:after{content:"";position:absolute;inset:auto -40px -80px auto;width:300px;height:300px;border-radius:50%;
+              background:rgba(255,255,255,.07)}
+  .hero h1{margin:0 0 6px;font-size:clamp(28px,3.4vw,44px);letter-spacing:.8px}
+  .hero p{margin:0;color:#e5f0f4;font-size:15px}
+  .toolbar{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+  button,.file-btn{border:0;border-radius:11px;padding:10px 14px;font-weight:700;cursor:pointer;font:inherit;
+                    background:white;color:var(--navy);box-shadow:0 5px 14px rgba(0,0,0,.08)}
+  button.secondary{background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.3)}
+  .dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+  .card{background:var(--paper);border:1px solid rgba(214,223,231,.9);border-radius:16px;box-shadow:var(--shadow)}
+  .stat{padding:16px;text-align:center}
+  .stat .num{font-size:28px;font-weight:800;color:var(--navy)}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:2px}
+  .section{margin:18px 0}
+  .section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}
+  .section-title h2{margin:0;color:var(--navy);font-size:23px}
+  .section-title span{color:var(--muted);font-size:13px}
+  .table-wrap{overflow:auto;border-radius:14px;box-shadow:var(--shadow);background:var(--paper)}
+  table{border-collapse:collapse;width:100%;min-width:1250px}
+  th,td{border:1px solid var(--line);padding:7px 8px;text-align:center;vertical-align:middle;background:rgba(255,255,255,.9)}
+  th{background:var(--navy);color:white;font-weight:800;position:sticky;top:0;z-index:2}
+  td.date{font-weight:700;white-space:nowrap;color:var(--navy);background:var(--teal-soft)}
+  .circle{width:25px;height:25px;border:2px solid var(--navy);border-radius:50%;background:transparent;cursor:pointer;display:inline-grid;place-items:center;
+           font-weight:900;color:white;transition:.18s}
+  .circle.done{background:var(--teal);border-color:var(--teal)}
+  .circle.done:before{content:"✓";font-size:16px}
+  .master-task{width:100%;min-width:70px;border:0;background:transparent;color:white;text-align:center;font:700 13px "CMU Serif", Georgia, serif}
+  .master-task:focus{outline:2px solid #8be0dc;outline-offset:-2px;border-radius:5px}
+  input,textarea,select{font:inherit}
+  .mini-input{width:100%;min-width:78px;border:1px solid #cfd9e2;border-radius:7px;padding:6px 7px;background:#f6fbff;color:var(--ink)}
+  .mini-input:focus,textarea:focus{outline:2px solid rgba(30,142,140,.25);border-color:var(--teal)}
+  .graph-card{padding:18px}
+  #graph{width:100%;height:420px;display:block;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.9)}
+  .graph-caption{font-size:13px;color:var(--muted);margin-top:8px}
+  .daily-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .day-card{padding:16px;border-radius:18px;background:var(--paper);box-shadow:var(--shadow);border:1px solid var(--line)}
+  .day-head{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 14px;background:var(--teal-soft);
+             border:1px solid #b9d9d7;border-radius:12px;margin-bottom:10px}
+  .day-head h3{margin:0;color:var(--navy);font-size:18px}
+  .day-head .meta{text-align:right;color:var(--muted);font-size:12px}
+  .detail-table{min-width:0}
+  .detail-table th,.detail-table td{padding:8px 7px;font-size:13px}
+  .detail-table th{position:static;background:var(--navy)}
+  .detail-table .task-input{min-width:140px;font-weight:700}
+  .note{width:100%;min-height:55px;border:1px solid #cfd9e2;border-radius:9px;padding:8px;background:#fbfdff}
+  .notes-row td{background:#f9fbfc}
+  .small-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+  .small-row label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .small-row input{flex:1}
+  .quote{margin:16px 0;padding:14px 18px;text-align:center;color:var(--navy);font-style:italic;
+          background:rgba(232,244,243,.88);border-left:4px solid var(--teal);border-radius:10px}
+  .footer{text-align:center;color:var(--muted);font-size:12px;margin:22px 0 10px}
+  .hidden{display:none}
+  .toast{position:fixed;right:20px;bottom:20px;padding:11px 14px;background:var(--navy);color:white;border-radius:10px;box-shadow:var(--shadow);
+         opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}
+  .toast.show{opacity:1;transform:translateY(0)}
+  @media(max-width:900px){.dashboard{grid-template-columns:repeat(2,1fr)}.daily-grid{grid-template-columns:1fr}}
+  @media(max-width:600px){.app{padding:10px}.hero{padding:22px}.dashboard{grid-template-columns:1fr 1fr}}
+  @media print {
+    body{background:white}
+    .toolbar{display:none!important}
+    .card,.day-card{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <h1>30-Day Personal Tracker</h1>
+    <p>23/09/2026 – 30/10/2026 · Edit tasks, tick habits, enter times, and watch your progress.</p>
+    <div class="toolbar">
+      <button onclick="saveNow()">Save</button>
+      <button class="secondary" onclick="window.print()">Print</button>
+      <button class="secondary" onclick="exportData()">Export data</button>
+      <label class="file-btn">Import data <input id="importFile" class="hidden" type="file" accept=".json" onchange="importData(event)"></label>
+      <button class="secondary" onclick="resetAll()">Reset</button>
+    </div>
+  </header>
+
+  <section class="dashboard">
+    <div class="card stat"><div class="num">38</div><div class="lbl">Days</div></div>
+    <div class="card stat"><div class="num">8</div><div class="lbl">Daily Tasks</div></div>
+    <div class="card stat"><div class="num" id="totalDone">0</div><div class="lbl">Completed Check-ins</div></div>
+    <div class="card stat"><div class="num" id="avgCompletion">0%</div><div class="lbl">Average Completion</div></div>
+  </section>
+
+  <section class="section card" style="padding:18px">
+    <div class="section-title">
+      <h2>Master Check-In</h2>
+      <span>Click circles to tick. Task names are editable.</span>
+    </div>
+    <div class="table-wrap">
+      <table id="masterTable"></table>
+    </div>
+  </section>
+
+  <section class="section card graph-card">
+    <div class="section-title">
+      <h2>Progress Graph</h2>
+      <span>Daily completion percentage · 23/09/2026 – 30/10/2026</span>
+    </div>
+    <canvas id="graph"></canvas>
+    <div class="graph-caption">Enter each day’s completion % in the Master Check-In or Daily Detail. The graph updates automatically.</div>
+  </section>
+
+  <div class="quote">“A little progress each day adds up to big results.”</div>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Daily Detail</h2>
+      <span>Exactly 2 days per section</span>
+    </div>
+    <div id="dailyPages"></div>
+  </section>
+
+  <div class="footer">Your entries are stored in this browser on your device. Export a backup regularly.</div>
+</div>
+
+<div id="toast" class="toast">Saved</div>
+
+<script>
+const TASKS = ["Gym", "Milk", "Lecture", "Football Practice", "Study", "IG Limit", "No", "Eat Healthy"];
+const START = new Date("2026-09-23T00:00:00");
+const END = new Date("2026-10-30T00:00:00");
+const QUOTES = [
+  "Discipline today. A better tomorrow.",
+  "Small steps every day lead to big results.",
+  "Keep moving forward.",
+  "Stay consistent. Keep going.",
+  "Hard work becomes visible over time.",
+  "One day at a time. One task at a time."
+];
+
+const state = {
+  tasks: [...TASKS],
+  days: Array.from({length:38}, (_,i)=>({
+    done: Array(8).fill(false),
+    target: Array(8).fill(""),
+    start: Array(8).fill(""),
+    end: Array(8).fill(""),
+    actual: Array(8).fill(""),
+    notes: Array(8).fill(""),
+    score: "",
+    completion: "",
+  }))
+};
+
+function keyFor(i,j,field){ return `d${i}_${field}_${j}`; }
+
+function formatDate(i) {
+  const d = new Date(START); d.setDate(START.getDate()+i);
+  const dd = String(d.getDate()).padStart(2,"0");
+  const mm = String(d.getMonth()+1).padStart(2,"0");
+  return `${dd}/${mm}/${d.getFullYear()}`;
+}
+function weekday(i) {
+  const d = new Date(START); d.setDate(START.getDate()+i);
+  return d.toLocaleDateString(undefined, {weekday:"long"});
+}
+
+function showToast(msg) {
+  const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),1200);
+}
+
+function saveNow() {
+  localStorage.setItem("tracker_state_v2", JSON.stringify(state));
+  showToast("Saved");
+}
+function loadSaved() {
+  const raw=localStorage.getItem("tracker_state_v2");
+  if(!raw) return;
+  try {
+    const x=JSON.parse(raw);
+    if(Array.isArray(x.tasks)&&x.tasks.length===8) state.tasks=x.tasks;
+    if(Array.isArray(x.days)&&x.days.length===38) {
+      state.days=x.days.map(d=>({
+        done:Array.isArray(d.done)?d.done.slice(0,8).concat(Array(8).fill(false)).slice(0,8):Array(8).fill(false),
+        target:Array.isArray(d.target)?d.target.slice(0,8).concat(Array(8).fill("")).slice(0,8):Array(8).fill(""),
+        start:Array.isArray(d.start)?d.start.slice(0,8).concat(Array(8).fill("")).slice(0,8):Array(8).fill(""),
+        end:Array.isArray(d.end)?d.end.slice(0,8).concat(Array(8).fill("")).slice(0,8):Array(8).fill(""),
+        actual:Array.isArray(d.actual)?d.actual.slice(0,8).concat(Array(8).fill("")).slice(0,8):Array(8).fill(""),
+        notes:Array.isArray(d.notes)?d.notes.slice(0,8).concat(Array(8).fill("")).slice(0,8):Array(8).fill(""),
+        score:d.score??"", completion:d.completion??""
+      }));
+    }
+  } catch(e){ console.warn(e); }
+}
+
+function cellInput(value, cls, oninput, placeholder="") {
+  const el=document.createElement("input"); el.type="text"; el.value=value??""; el.className=cls;
+  el.placeholder=placeholder; el.addEventListener("input",e=>oninput(e.target.value));
+  return el;
+}
+
+function renderMaster() {
+  const table=document.getElementById("masterTable");
+  table.innerHTML="";
+  const thead=document.createElement("thead"), trh=document.createElement("tr");
+  const dateTh=document.createElement("th"); dateTh.textContent="Date"; trh.appendChild(dateTh);
+  state.tasks.forEach((name,j)=>{
+    const th=document.createElement("th");
+    const inp=cellInput(name,"master-task",(v)=>{state.tasks[j]=v; renderDailyNames(); saveQuiet();}, "");
+    inp.className="master-task"; th.appendChild(inp); trh.appendChild(th);
+  });
+  const doneTh=document.createElement("th"); doneTh.textContent="Done"; trh.appendChild(doneTh);
+  const scoreTh=document.createElement("th"); scoreTh.textContent="Score"; trh.appendChild(scoreTh);
+  thead.appendChild(trh); table.appendChild(thead);
+
+  const tbody=document.createElement("tbody");
+  state.days.forEach((day,i)=>{
+    const tr=document.createElement("tr");
+    const tdDate=document.createElement("td"); tdDate.className="date"; tdDate.textContent=`${formatDate(i)}`; tr.appendChild(tdDate);
+    state.tasks.forEach((name,j)=>{
+      const td=document.createElement("td");
+      const b=document.createElement("button"); b.className="circle"+(day.done[j]?" done":""); b.setAttribute("aria-label",`${formatDate(i)} ${name}`);
+      b.onclick=()=>{day.done[j]=!day.done[j]; syncCompletion(i); b.classList.toggle("done",day.done[j]); updateStats(); drawGraph(); saveQuiet();};
+      td.appendChild(b); tr.appendChild(td);
+    });
+    const tdDone=document.createElement("td");
+    const count=day.done.filter(Boolean).length; tdDone.textContent=count;
+    tdDone.dataset.day=i; tr.appendChild(tdDone);
+    const tdScore=document.createElement("td");
+    const inp=cellInput(day.completion,"mini-input",(v)=>{day.completion=v; updateStats(); drawGraph(); saveQuiet();},"%");
+    inp.placeholder="%"; tdScore.appendChild(inp); tr.appendChild(tdScore);
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+}
+
+function renderDaily() {
+  const root=document.getElementById("dailyPages"); root.innerHTML="";
+  for(let p=0;p<38;p+=2){
+    const wrap=document.createElement("div"); wrap.className="daily-grid";
+    [p,p+1].forEach(i=>{
+      const card=document.createElement("article"); card.className="day-card";
+      const head=document.createElement("div"); head.className="day-head";
+      const h=document.createElement("h3"); h.textContent=`Day ${String(i+1).padStart(2,"0")} · ${formatDate(i)}`;
+      const meta=document.createElement("div"); meta.className="meta"; meta.innerHTML=`${weekday(i)}<br><span>Score: <b>${state.days[i].done.filter(Boolean).length}</b>/8</span>`;
+      head.append(h,meta); card.appendChild(head);
+
+      const tw=document.createElement("div"); tw.className="table-wrap";
+      const table=document.createElement("table"); table.className="detail-table";
+      const hdr=document.createElement("tr");
+      ["Task","My target","Done","Start","End","Actual","Notes"].forEach(x=>{const th=document.createElement("th");th.textContent=x;hdr.appendChild(th)})
+      const thead=document.createElement("thead"); thead.appendChild(hdr); table.appendChild(thead);
+      const tb=document.createElement("tbody");
+
+      state.tasks.forEach((name,j)=>{
+        const tr=document.createElement("tr");
+        const tdTask=document.createElement("td"); tdTask.appendChild(cellInput(state.tasks[j],"mini-input",(v)=>{state.tasks[j]=v; renderMaster(); saveQuiet();}, "")); tdTask.firstChild.classList.add("task-input"); tr.appendChild(tdTask);
+        const fields=["target","start","end","actual"];
+        fields.forEach(f=>{const td=document.createElement("td");td.appendChild(cellInput(state.days[i][f][j],"mini-input",(v)=>{state.days[i][f][j]=v;saveQuiet();}));tr.appendChild(td)});
+        const tdDone=document.createElement("td"); const b=document.createElement("button"); b.className="circle"+(state.days[i].done[j]?" done":""); b.onclick=()=>{state.days[i].done[j]=!state.days[i].done[j]; syncCompletion(i); renderDaily(); renderMaster(); saveQuiet();}; tdDone.appendChild(b); tr.appendChild(tdDone);
+        const tdNotes=document.createElement("td"); const ta=document.createElement("textarea"); ta.className="note"; ta.value=state.days[i].notes[j]||""; ta.placeholder="Notes"; ta.addEventListener("input",e=>{state.days[i].notes[j]=e.target.value;saveQuiet();}); tdNotes.appendChild(ta); tr.appendChild(tdNotes);
+        tb.appendChild(tr);
+      });
+      table.appendChild(tb); tw.appendChild(table); card.appendChild(tw);
+
+      const small=document.createElement("div"); small.className="small-row";
+      const scoreLabel=document.createElement("label"); scoreLabel.innerHTML=`Completion % <input class="mini-input" value="${state.days[i].completion||""}" placeholder="%">`;
+      scoreLabel.querySelector("input").addEventListener("input",e=>{state.days[i].completion=e.target.value;updateStats();drawGraph();saveQuiet();});
+      const quoteLabel=document.createElement("div"); quoteLabel.className="quote"; quoteLabel.textContent=`“${QUOTES[i%QUOTES.length]}”`;
+      small.append(scoreLabel, quoteLabel); card.appendChild(small);
+      wrap.appendChild(card);
+    });
+    root.appendChild(wrap);
+  }
+}
+
+function renderDailyNames() {
+  // Re-render only when a master task name is edited so names remain synchronized.
+  renderDaily();
+}
+
+function syncCompletion(i) {
+  const count=state.days[i].done.filter(Boolean).length;
+  state.days[i].score=String(count);
+  state.days[i].completion=String(Math.round(count/8*100));
+}
+
+function updateStats() {
+  const total=state.days.reduce((s,d)=>s+d.done.filter(Boolean).length,0);
+  const vals=state.days.map(d=>parseFloat(d.completion)).filter(v=>Number.isFinite(v));
+  const avg=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):0;
+  document.getElementById("totalDone").textContent=total;
+  document.getElementById("avgCompletion").textContent=avg+"%";
+}
+
+function drawGraph() {
+  const canvas=document.getElementById("graph");
+  const dpr=window.devicePixelRatio||1;
+  const rect=canvas.getBoundingClientRect();
+  canvas.width=rect.width*dpr; canvas.height=rect.height*dpr;
+  const ctx=canvas.getContext("2d"); ctx.scale(dpr,dpr);
+  const w=rect.width,h=rect.height;
+  ctx.clearRect(0,0,w,h);
+  const left=52,right=18,top=20,bottom=46;
+  const gw=w-left-right, gh=h-top-bottom;
+  ctx.strokeStyle="#d6dfe7"; ctx.lineWidth=1;
+  ctx.fillStyle="#5f7180"; ctx.font="12px Georgia";
+  for(let p=0;p<=100;p+=20){
+    const y=top+gh-(p/100)*gh;
+    ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(left+gw,y);ctx.stroke();
+    ctx.fillText(p+"%",8,y+4);
+  }
+  for(let i=0;i<38;i+=3){
+    const x=left+(i/37)*gw;
+    ctx.beginPath();ctx.moveTo(x,top);ctx.lineTo(x,top+gh);ctx.stroke();
+    ctx.fillText(String(i+1),x-5,h-20);
+  }
+  ctx.strokeStyle="#1E8E8E"; ctx.lineWidth=3; ctx.beginPath();
+  let started=false;
+  state.days.forEach((d,i)=>{
+    const v=parseFloat(d.completion);
+    if(!Number.isFinite(v)) return;
+    const x=left+(i/37)*gw, y=top+gh-(Math.max(0,Math.min(100,v))/100)*gh;
+    if(!started){ctx.moveTo(x,y);started=true} else ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  state.days.forEach((d,i)=>{
+    const v=parseFloat(d.completion); if(!Number.isFinite(v)) return;
+    const x=left+(i/37)*gw, y=top+gh-(Math.max(0,Math.min(100,v))/100)*gh;
+    ctx.fillStyle="#173651";ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fill();
+  });
+  ctx.fillStyle="#173651";ctx.font="bold 13px Georgia";ctx.fillText("Completion %",left,14);
+  ctx.fillText("Day",left+gw-22,h-6);
+}
+
+function saveQuiet() { clearTimeout(window._sv); window._sv=setTimeout(()=>localStorage.setItem("tracker_state_v2",JSON.stringify(state)),350); }
+
+function exportData() {
+  saveNow();
+  const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="30-day-tracker-backup.json"; a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importData(e) {
+  const file=e.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try {
+      const x=JSON.parse(reader.result);
+      if(!Array.isArray(x.tasks)||x.tasks.length!==8||!Array.isArray(x.days)||x.days.length!==38) throw new Error("Invalid backup");
+      state.tasks=x.tasks; state.days=x.days; saveNow(); renderAll(); showToast("Imported");
+    } catch(err) { alert("Could not import that file."); }
+  };
+  reader.readAsText(file);
+}
+
+function resetAll() {
+  if(!confirm("Reset all entries and task names?")) return;
+  state.tasks=[...TASKS];
+  state.days=Array.from({length:38},()=>({done:Array(8).fill(false),target:Array(8).fill(""),start:Array(8).fill(""),end:Array(8).fill(""),actual:Array(8).fill(""),notes:Array(8).fill(""),score:"",completion:""}));
+  saveNow(); renderAll();
+}
+
+function renderAll() {
+  renderMaster(); renderDaily(); updateStats(); drawGraph();
+}
+
+loadSaved();
+renderAll();
+window.addEventListener("resize",drawGraph);
+</script>
+</body>
+</html>
